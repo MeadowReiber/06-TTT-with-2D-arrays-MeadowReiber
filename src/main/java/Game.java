@@ -21,4 +21,8 @@ public class Game{
   public void updateBoard(int x, int y, int symbol){
     this.board[y][x] = symbol;
   }
+
+  public void turn(){
+    
+  }
 }
