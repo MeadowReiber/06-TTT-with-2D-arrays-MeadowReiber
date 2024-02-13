@@ -32,6 +32,7 @@ For more in the future and more awesomer...
 public class Main {
   public static void main(String[] args) {
     new Player();
+    new Game(new Player(), new Player(), 3);
     System.out.println("TTT - RAN WITHOUT ERRORS");
   }
 }

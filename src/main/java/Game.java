@@ -4,9 +4,9 @@ public class Game{
     private Player[] players;
     
     //constructor--------------------------------
-    public Game(Player x, Player o){
-        players = new Player[] {x, o};
-        
+    public Game(Player x, Player o, int size){
+        this.players = new Player[] {x, o};
+        this.board = new int[size][size];
     }
 
     //methods------------------------------------
