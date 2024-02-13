@@ -31,8 +31,9 @@ For more in the future and more awesomer...
 
 public class Main {
   public static void main(String[] args) {
-    new Player();
-    new Game(new Player(), new Player(), 3);
+    new Player('5');
+    Game myGame = new Game(new Player('t'), new Player('1'), 3);
+    myGame.drawBoard();
     System.out.println("TTT - RAN WITHOUT ERRORS");
   }
 }
