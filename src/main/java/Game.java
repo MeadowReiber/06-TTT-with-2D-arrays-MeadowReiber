@@ -6,12 +6,30 @@ public class Game{
   private Player winner;
     
   //constructor--------------------------------
-  public Game(Player x, Player o, int size){
+  public Game(Player x, Player o, int[][] board){
     this.players = new Player[] {x, o};
-    this.board = new int[size][size];
+    this.board = board;
   }
 
   //methods------------------------------------
+  //getters and setters
+  public boolean getDone(){
+    return this.done;
+  }
+  public Player getWinner(){
+    return this.winner;
+  }
+  public int[][] getBoard(){
+    return this.board;
+  }
+  public void updateBoard(int x, int y, int symbol){
+    if(this.board[y][x] == 0) this.board[y][x] = symbol;
+    else{
+      System.out.println("this tile is full");
+    }
+  }
+  
+  //displays the board
   public void drawBoard(){
     for(int y = 0; y < board.length; y++){
       for(int x = 0; x < board[y].length; x++){
@@ -20,19 +38,8 @@ public class Game{
       System.out.println();
     }
   }
-  public void updateBoard(int x, int y, int symbol){
-    if(this.board[y][x] == 0) this.board[y][x] = symbol;
-    else{
-      System.out.println("this tile is full");
-    }
-  }
-  public boolean getDone(){
-    return this.done;
-  }
-  public Player getWinner(){
-    return this.winner;
-  }
-
+  
+  //runs through the process of one player's turn
   public void turn(Player player){
     String[] square = player.getTurn();
     int x = Integer.parseInt(square[0]);
@@ -44,6 +51,7 @@ public class Game{
     this.done = checkWin(player);
   }
 
+  //checking all of the win conditions
   public boolean checkWin(Player player){
     int symbol = player.getSymbol();
     if(horizontalWin(symbol) || verticalWin(symbol) || diagonalWin1(symbol) || diagonalWin2(symbol)){
@@ -87,5 +95,17 @@ public class Game{
     }
     return win;
   }
-  
+
+  //checks if the whole board is full
+  /*
+  public boolean gameTie(){
+    for(int y = 0; y < this.board.length; y++){
+      for(int x = 0; x < this.board[y].length; x++){
+        if(this.board[y][x] == 0) return false;
+      }
+    }
+    System.out.println("The game is a draw");
+    return true;
+  }
+  */
 }

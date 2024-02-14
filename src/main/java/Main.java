@@ -26,24 +26,40 @@ For more in the future and more awesomer...
 4) You can make a new class for a game session as well as a single game
 5) You can make a new class for a turn, or a piece, or a screen painter
 */
-//Meadow Reiber
-//Tic Tac Toe
+// Meadow Reiber
+// Tic Tac Toe
+// 2/14/2024
+// period 6
 
 public class Main {
+  public static final int SIZE = 3;
+  public static final int[][] STATE = new int[SIZE][SIZE];
+  
   public static void main(String[] args) {
     Player player1 = new Player(1);
     Player player2 = new Player(2);
-    Game ticTacToe = new Game(player1, player2, 4);
+    Game ticTacToe = new Game(player1, player2, STATE);
 
     ticTacToe.drawBoard();
     
     while(!(ticTacToe.getDone())){
       ticTacToe.turn(player1);
+      updateState(ticTacToe);
+      
       if (ticTacToe.getDone()) break;
       ticTacToe.turn(player2);
+      updateState(ticTacToe);
     }
 
     System.out.println("Player " + ticTacToe.getWinner().getSymbol() + " won!");
     System.out.println("TTT - RAN WITHOUT ERRORS");
+  }
+
+  public static void updateState(Game game){
+    for(int y = 0; y < STATE.length; y++){
+      for(int x = 0; x < STATE[y].length; x++){
+        STATE[y][x] = game.getBoard()[y][x];
+      }
+    }
   }
 }
