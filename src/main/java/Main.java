@@ -31,9 +31,19 @@ For more in the future and more awesomer...
 
 public class Main {
   public static void main(String[] args) {
-    new Player('5');
-    Game myGame = new Game(new Player('t'), new Player('1'), 3);
-    myGame.drawBoard();
+    Player player1 = new Player(1);
+    Player player2 = new Player(2);
+    Game ticTacToe = new Game(player1, player2, 4);
+
+    ticTacToe.drawBoard();
+    
+    while(!(ticTacToe.getDone())){
+      ticTacToe.turn(player1);
+      if (ticTacToe.getDone()) break;
+      ticTacToe.turn(player2);
+    }
+
+    System.out.println("Player " + ticTacToe.getWinner().getSymbol() + " won!");
     System.out.println("TTT - RAN WITHOUT ERRORS");
   }
 }
