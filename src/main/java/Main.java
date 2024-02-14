@@ -55,6 +55,7 @@ public class Main {
     System.out.println("TTT - RAN WITHOUT ERRORS");
   }
 
+  //matches the final variable to the board within the game
   public static void updateState(Game game){
     for(int y = 0; y < STATE.length; y++){
       for(int x = 0; x < STATE[y].length; x++){
