@@ -70,6 +70,12 @@ public class Game{
     }
     return false;
   }
+
+  // 1 1 0
+  // 0 2 1
+  // 2 0 0
+
+  
   private boolean verticalWin(int symbol){
     for(int y = 0; y < this.board.length; y++){
       boolean win = true;

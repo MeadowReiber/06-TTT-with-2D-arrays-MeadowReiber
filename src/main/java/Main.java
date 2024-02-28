@@ -30,14 +30,16 @@ For more in the future and more awesomer...
 // Tic Tac Toe
 // 2/14/2024
 // period 6
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class Main {
   public static final int SIZE = 3;
   public static final int[][] STATE = new int[SIZE][SIZE];
   
-  public static void main(String[] args) {
-    Player player1 = new Player(1);
-    Player player2 = new Player(2);
+  public static void main(String[] args) throws FileNotFoundException, IOException{
+    Player player1 = new Player(1, 1);
+    Player player2 = new Player(2, 2);
     Game ticTacToe = new Game(player1, player2, STATE);
 
     ticTacToe.drawBoard();
@@ -52,6 +54,7 @@ public class Main {
     }
 
     System.out.println("Player " + ticTacToe.getWinner().getSymbol() + " won!");
+    
     System.out.println("TTT - RAN WITHOUT ERRORS");
   }
 
